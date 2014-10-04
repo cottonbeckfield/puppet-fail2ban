@@ -14,14 +14,14 @@
 
 class fail2ban(
   $teamEmail = hiera('team_email', ''),
-) {
+){
   package { 'fail2ban':
     ensure => installed,
-    before => [ File['/etc/fail2ban/fail2ban.conf'], 
+    before => [ File['/etc/fail2ban/fail2ban.conf'],
                 File['/etc/fail2ban/jail.conf'],
                 File['/etc/fail2ban/jail.local'],
-		File['/etc/fail2ban/action.d/sendmail-whois.conf'], 
-		File['/etc/fail2ban/filter.d/sshd.conf'],
+                File['/etc/fail2ban/action.d/sendmail-whois.conf'],
+                File['/etc/fail2ban/filter.d/sshd.conf'],
               ],
   }
 
@@ -65,5 +65,4 @@ class fail2ban(
     ensure  => running,
     require => Package['fail2ban'],
   }
-
 }
