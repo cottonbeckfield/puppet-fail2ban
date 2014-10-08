@@ -4,5 +4,5 @@
 enabled  = true
 filter   = sshd
 action   = iptables[name=SSH, port=ssh, protocol=tcp]
-           sendmail-whois[name=SSH, dest=<%= t_email %>, sender=fail2ban@<%= scope.lookupvar('fqdn')%>]
+           sendmail-whois[name=SSH, dest=<%= teamEmail %>, sender=fail2ban@<%= scope.lookupvar('fqdn')%>]
 logpath  = /var/log/secure
